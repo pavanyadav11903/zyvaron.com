@@ -1,68 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Zyvaron - Digital Platform</title>
-<style>
-body{font-family:Arial;margin:0;background:#0f172a;color:white;}
-nav{background:#020617;padding:15px;text-align:center;}
-nav a{color:white;margin:15px;text-decoration:none;font-weight:bold;}
-.hero{text-align:center;padding:80px;}
-.card{
-background:#1e293b;
-margin:20px;
-padding:20px;
-border-radius:10px;
-display:inline-block;
-width:250px;
-}
-button{
-background:#38bdf8;
-border:none;
-padding:10px;
-border-radius:5px;
-cursor:pointer;
-}
-</style>
+    <title>Zyvaron Store</title>
+    <style>
+        body {font-family: Arial; margin:0; background:#f2f2f2;}
+        header {background:black; color:white; padding:15px; text-align:center;}
+        nav {background:#333; padding:10px; text-align:center;}
+        nav a {
+            color:white; margin:10px; text-decoration:none;
+            font-weight:bold;
+        }
+        .products {
+            display:flex; flex-wrap:wrap; justify-content:center;
+            margin-top:20px;
+        }
+        .card {
+            background:white; width:220px; margin:15px;
+            padding:15px; border-radius:10px;
+            box-shadow:0 0 10px gray;
+            text-align:center;
+        }
+        img {width:100%; border-radius:10px;}
+        button {
+            background:green; color:white; padding:10px;
+            border:none; border-radius:5px; margin-top:10px;
+        }
+        footer {
+            background:black; color:white;
+            text-align:center; padding:10px; margin-top:20px;
+        }
+    </style>
 </head>
 
 <body>
 
+<header>
+    <h1>🛒 Zyvaron Online Store</h1>
+</header>
+
 <nav>
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Shop</a>
-<a href="#">Partners</a>
-<a href="#">Contact</a>
+    <a href="#">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<div class="hero">
-<h1>Zyvaron Digital Marketplace</h1>
-<p>All online services and shopping in one platform.</p>
-</div>
-
-<center>
+<div class="products">
 
 <div class="card">
-<h3>Amazon Deals</h3>
-<p>Best products online</p>
-<a href="https://amazon.in" target="_blank">
-<button>Shop Now</button>
-</a>
+    <img src="https://via.placeholder.com/200">
+    <h3>Smartphone</h3>
+    <p>₹14,999</p>
+    <a href="#"><button>Buy Now</button></a>
 </div>
 
 <div class="card">
-<h3>Website Services</h3>
-<p>Create websites & digital solutions</p>
-<button>Hire Now</button>
+    <img src="https://via.placeholder.com/200">
+    <h3>Headphones</h3>
+    <p>₹1,999</p>
+    <a href="#"><button>Buy Now</button></a>
 </div>
 
 <div class="card">
-<h3>Partner With Us</h3>
-<p>List your business on Zyvaron</p>
-<button>Join</button>
+    <img src="https://via.placeholder.com/200">
+    <h3>Laptop</h3>
+    <p>₹45,000</p>
+    <a href="#"><button>Buy Now</button></a>
 </div>
 
-</center>
+</div>
+
+<footer>
+    <p>© 2026 Zyvaron | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
