@@ -1,8 +1,81 @@
-<div class="card">
-    <img src="https://via.placeholder.com/200">
-    <h3>HP Laptop</h3>
-    <p>₹45,000</p>
-    <a href="https:https://amzn.to/4uWHXxe/zyvaronstore-21" target="_blank">
-        <button>Buy Now</button>
-    </a>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Zyvaron Store</title>
+<style>
+body {font-family: Arial; margin:0; background:#f2f2f2;}
+header {background:black; color:white; padding:15px; text-align:center;}
+nav {background:#333; padding:10px; text-align:center;}
+nav input {padding:8px; width:200px;}
+.products {display:flex; flex-wrap:wrap; justify-content:center;}
+.card {background:white; width:220px; margin:15px; padding:15px; border-radius:10px; box-shadow:0 0 10px gray;}
+img {width:100%; border-radius:10px;}
+button {background:green; color:white; padding:10px; border:none; border-radius:5px; margin-top:10px;}
+#login {position:fixed; top:0; left:0; width:100%; height:100%; background:white; display:flex; justify-content:center; align-items:center;}
+.login-box {background:#eee; padding:20px; border-radius:10px;}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" id="user" placeholder="Enter Name"><br><br>
+    <button onclick="login()">Enter</button>
+  </div>
 </div>
+
+<header>
+<h1>🛒 Zyvaron Store</h1>
+</header>
+
+<nav>
+<input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+</nav>
+
+<div class="products" id="productList">
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>HP Laptop</h3>
+<p>₹45,000</p>
+<a href="https://www.amazon.in/dp/B0FDKPXD95/?tag=zyvaronstore-21" target="_blank">
+<button>Buy Now</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/200">
+<h3>Headphones</h3>
+<p>₹1,999</p>
+<a href="https://www.amazon.in/dp/B0XXXXX/?tag=zyvaronstore-21" target="_blank">
+<button>Buy Now</button>
+</a>
+</div>
+
+</div>
+
+<script>
+function login(){
+  var name = document.getElementById("user").value;
+  if(name!=""){
+    document.getElementById("login").style.display="none";
+  } else {
+    alert("Enter name");
+  }
+}
+
+function searchProduct(){
+  let input = document.getElementById('search').value.toLowerCase();
+  let cards = document.getElementsByClassName('card');
+
+  for(let i=0;i<cards.length;i++){
+    let text = cards[i].innerText.toLowerCase();
+    cards[i].style.display = text.includes(input) ? "" : "none";
+  }
+}
+</script>
+
+</body>
+</html>
