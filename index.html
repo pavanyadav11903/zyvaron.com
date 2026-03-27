@@ -2,80 +2,163 @@
 <html>
 <head>
 <title>Zyvaron Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body {font-family: Arial; margin:0; background:#f2f2f2;}
-header {background:black; color:white; padding:15px; text-align:center;}
-nav {background:#333; padding:10px; text-align:center;}
-nav input {padding:8px; width:200px;}
-.products {display:flex; flex-wrap:wrap; justify-content:center;}
-.card {background:white; width:220px; margin:15px; padding:15px; border-radius:10px; box-shadow:0 0 10px gray;}
-img {width:100%; border-radius:10px;}
-button {background:green; color:white; padding:10px; border:none; border-radius:5px; margin-top:10px;}
-#login {position:fixed; top:0; left:0; width:100%; height:100%; background:white; display:flex; justify-content:center; align-items:center;}
-.login-box {background:#eee; padding:20px; border-radius:10px;}
+body {margin:0; font-family:Arial; background:#f1f3f6;}
+
+header {
+  background:#2874f0;
+  color:white;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.search-box input {
+  padding:8px;
+  width:250px;
+  border:none;
+}
+
+nav {
+  background:white;
+  padding:10px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+nav button {
+  padding:8px;
+  border:none;
+  background:#ddd;
+  cursor:pointer;
+}
+
+.products {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card {
+  background:white;
+  width:220px;
+  margin:15px;
+  padding:15px;
+  border-radius:5px;
+  box-shadow:0 0 5px gray;
+  text-align:center;
+}
+
+.card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+button.buy {
+  background:#fb641b;
+  color:white;
+  border:none;
+  padding:10px;
+  margin-top:10px;
+}
+
+footer {
+  text-align:center;
+  padding:10px;
+  background:#172337;
+  color:white;
+}
 </style>
 </head>
 
 <body>
 
-<div id="login">
-  <div class="login-box">
-    <h2>Login</h2>
-    <input type="text" id="user" placeholder="Enter Name"><br><br>
-    <button onclick="login()">Enter</button>
-  </div>
-</div>
-
 <header>
-<h1>🛒 Zyvaron Store</h1>
+  <h2>Zyvaron</h2>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+  </div>
 </header>
 
 <nav>
-<input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+  <button onclick="filter('all')">All</button>
+  <button onclick="filter('mobile')">Mobiles</button>
+  <button onclick="filter('laptop')">Laptops</button>
+  <button onclick="filter('headphone')">Headphones</button>
 </nav>
 
 <div class="products" id="productList">
 
-<div class="card">
-<img src="https://via.placeholder.com/200">
-<h3>HP Laptop</h3>
-<p>₹45,000</p>
-<a href="https://www.amazon.in/dp/B0FDKPXD95/?tag=zyvaronstore-21" target="_blank">
-<button>Buy Now</button>
-</a>
+<div class="card mobile">
+  <img src="https://via.placeholder.com/200">
+  <h3>Smartphone</h3>
+  <p>₹14,999</p>
+  <a href="https://https://amzn.to/3PxThQptag=zyvaronstore-21" target="_blank">
+    <button class="buy">Buy Now</button>
+  </a>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/200">
-<h3>Headphones</h3>
-<p>₹1,999</p>
-<a href="https://www.amazon.in/dp/B0XXXXX/?tag=zyvaronstore-21" target="_blank">
-<button>Buy Now</button>
-</a>
+<div class="card laptop">
+  <img src="https://via.placeholder.com/200">
+  <h3>HP Laptop</h3>
+  <p>₹45,000</p>
+  <a href="https://www.amazon.in/dp/B0FDKPXD95/?tag=zyvaronstore-21" target="_blank">
+    <button class="buy">Buy Now</button>
+  </a>
+</div>
+
+<div class="card headphone">
+  <img src="https://via.placeholder.com/200">
+  <h3>Wireless Headphones</h3>
+  <p>₹1,999</p>
+  <a href="https:https://amzn.to/3PxThQpzyvaronstore-21" target="_blank">
+    <button class="buy">Buy Now</button>
+  </a>
 </div>
 
 </div>
+
+<footer>
+  <p>© 2026 Zyvaron | Affiliate Store</p>
+</footer>
 
 <script>
-function login(){
-  var name = document.getElementById("user").value;
-  if(name!=""){
-    document.getElementById("login").style.display="none";
-  } else {
-    alert("Enter name");
-  }
-}
-
 function searchProduct(){
-  let input = document.getElementById('search').value.toLowerCase();
-  let cards = document.getElementsByClassName('card');
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.getElementsByClassName("card");
 
   for(let i=0;i<cards.length;i++){
     let text = cards[i].innerText.toLowerCase();
     cards[i].style.display = text.includes(input) ? "" : "none";
   }
 }
+
+function filter(category){
+  let cards = document.getElementsByClassName("card");
+
+  for(let i=0;i<cards.length;i++){
+    if(category=="all"){
+      cards[i].style.display="";
+    } else {
+      cards[i].style.display = cards[i].classList.contains(category) ? "" : "none";
+    }
+  }
+}
 </script>
 
 </body>
 </html>
+
+  <div class="card mobile">
+  <img src="IMAGE LINK">
+  <h3>Product Name</h3>
+  <p>₹Price</p>
+  <a href="AFFILIATE LINK" target="_blank">
+    <button class="buy">Buy Now</button>
+  </a>
+</div>
