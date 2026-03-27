@@ -22,21 +22,6 @@ header {
   border:none;
 }
 
-nav {
-  background:white;
-  padding:10px;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-
-nav button {
-  padding:8px;
-  border:none;
-  background:#ddd;
-  cursor:pointer;
-}
-
 .products {
   display:flex;
   flex-wrap:wrap;
@@ -59,7 +44,7 @@ nav button {
   object-fit:cover;
 }
 
-button.buy {
+button {
   background:#fb641b;
   color:white;
   border:none;
@@ -68,203 +53,10 @@ button.buy {
 }
 
 footer {
-  text-align:center;
-  padding:10px;
   background:#172337;
   color:white;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h2>Zyvaron</h2>
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
-  </div>
-</header>
-
-<nav>
-  <button onclick="filter('all')">All</button>
-  <button onclick="filter('mobile')">Mobiles</button>
-  <button onclick="filter('laptop')">Laptops</button>
-  <button onclick="filter('headphone')">Headphones</button>
-</nav>
-
-<div class="products" id="productList">
-
-<div class="card mobile">
-  <img src="https://via.placeholder.com/200">
-  <h3>Smartphone</h3>
-  <p>₹14,999</p>
-  <a href="https://https://amzn.to/3PxThQptag=zyvaronstore-21" target="_blank">
-    <button class="buy">Buy Now</button>
-  </a>
-</div>
-
-<div class="card laptop">
-  <img src="https://via.placeholder.com/200">
-  <h3>HP Laptop</h3>
-  <p>₹45,000</p>
-  <a href="https://www.amazon.in/dp/B0FDKPXD95/?tag=zyvaronstore-21" target="_blank">
-    <button class="buy">Buy Now</button>
-  </a>
-</div>
-
-<div class="card headphone">
-  <img src="https://via.placeholder.com/200">
-  <h3>Wireless Headphones</h3>
-  <p>₹1,999</p>
-  <a href="https:https://amzn.to/3PxThQpzyvaronstore-21" target="_blank">
-    <button class="buy">Buy Now</button>
-  </a>
-</div>
-
-</div>
-
-<footer>
-  <p>© 2026 Zyvaron | Affiliate Store</p>
-</footer>
-
-<script>
-function searchProduct(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
-
-  for(let i=0;i<cards.length;i++){
-    let text = cards[i].innerText.toLowerCase();
-    cards[i].style.display = text.includes(input) ? "" : "none";
-  }
-}
-
-function filter(category){
-  let cards = document.getElementsByClassName("card");
-
-  for(let i=0;i<cards.length;i++){
-    if(category=="all"){
-      cards[i].style.display="";
-    } else {
-      cards[i].style.display = cards[i].classList.contains(category) ? "" : "none";
-    }
-  }
-}
-</script>
-
-</body>
-</html>
-
-  <div class="card mobile">
-  <img src="IMAGE LINK">
-  <h3>Product Name</h3>
-  <p>₹Price</p>
-  <a href="AFFILIATE LINK" target="_blank">
-    <button class="buy">Buy Now</button>
-  </a>
-</div>
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Zyvaron Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-body {margin:0; font-family:Arial; background:#f1f3f6;}
-
-header {
-  background:#2874f0;
-  color:white;
-  padding:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.search-box input {
-  padding:8px;
-  width:250px;
-  border:none;
-}
-
-nav {
-  background:white;
-  padding:10px;
   text-align:center;
-}
-
-nav button {
-  padding:8px;
-  margin:5px;
-  border:none;
-  background:#ddd;
-  cursor:pointer;
-}
-
-.products {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.card {
-  background:white;
-  width:220px;
-  margin:15px;
-  padding:15px;
-  border-radius:5px;
-  box-shadow:0 0 5px gray;
-  text-align:center;
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:scale(1.05);
-}
-
-.card img {
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-button.buy {
-  background:#fb641b;
-  color:white;
-  border:none;
-  padding:10px;
-  margin-top:10px;
-}
-
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:green;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
-}
-
-footer {
-  text-align:center;
-  padding:10px;
-  background:#172337;
-  color:white;
-}
-
-/* popup */
-.popup {
-  display:none;
-  position:fixed;
-  top:20%;
-  left:50%;
-  transform:translate(-50%,-20%);
-  background:white;
   padding:20px;
-  box-shadow:0 0 10px black;
 }
 </style>
 </head>
@@ -272,78 +64,52 @@ footer {
 <body>
 
 <header>
-  <h2>Zyvaron</h2>
+  <h2>Zyvaron Store</h2>
   <div class="search-box">
-    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProduct()">
+    <input type="text" placeholder="Search...">
   </div>
 </header>
-
-<nav>
-  <button onclick="filter('all')">All</button>
-  <button onclick="filter('mobile')">Mobiles</button>
-  <button onclick="filter('laptop')">Laptops</button>
-</nav>
 
 <div class="products">
 
-<div class="card mobile" onclick="showDetails('Smartphone ₹14999')">
-  <img src="https://via.placeholder.com/200">
-  <h3>Smartphone</h3>
-  <p>₹14,999</p>
-  <a href="https://www.amazon.in/dp/B0XXXXX/?tag=zyvaronstore-21" target="_blank">
-    <button class="buy">Buy Now</button>
-  </a>
-</div>
-
-<div class="card laptop" onclick="showDetails('HP Laptop ₹45000')">
-  <img src="https://via.placeholder.com/200">
+<!-- PRODUCT 1 -->
+<div class="card">
+  <img src="https://m.media-amazon.com/images/I/41iLKuXmPjL._SY300_SX300_QL70_FMwebp_.jpg">
   <h3>HP Laptop</h3>
-  <p>₹45,000</p>
-  <a href="https://www.amazon.in/dp/B0FDKPXD95/?tag=zyvaronstore-21" target="_blank">
-    <button class="buy">Buy Now</button>
+  <p>₹75,000</p>
+  <a href="https:https://amzn.to/4tejuC1=zyvaronstore-21" target="_blank">
+    <button>Buy Now</button>
   </a>
 </div>
 
+<!-- PRODUCT 2 -->
+<div class="card">
+  <img src="https:https://m.media-amazon.com/images/I/414vDlnDqjL._SY300_SX300_QL70_FMwebp_.jpg>
+  <h3>Apple 2026 MacBook Neo 13" Laptop with A18 Pro chip: Built for AI and Apple Intelligence, Liquid Retina Display, 8GB Unified Memory, 512GB SSD Storage, 1080p FaceTime HD Camera, Touch ID; Silver</h3>
+  <p>₹1,59,999</p>
+  <a href="https://m.media-amazon.com/images/I/31OIMPObBaL._SX342_SY445_QL70_FMwebp_.jpg" target="_blank">
+    <button>Buy Now</button>
+  </a>
 </div>
-
-<div id="popup" class="popup"></div>
-
-<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬</a>
+<!-- PRODUCT 3 -->
+<div class="card">
+  <img src="https://m.media-amazon.com/images/I/31OIMPObBaL._SX342_SY445_QL70_FMwebp_.jpg">
+  <h3>Headphones</h3>
+  <p>₹76,700</p>
+  <a href="https://m.media-amazon.com/images/I/31OIMPObBaL._SX342_SY445_QL70_FMwebp_.jpg" target="_blank">
+    <button>Buy Now</button>
+  </a>
+</div>
+  
+</div>
 
 <footer>
-  <p>© 2026 Zyvaron | Affiliate Store</p>
+  <p>📧 Email: zyvaron.co.in@gmail.com
+</p>
+  <p>📞 Phone: +916363325958</p>
+  <p>This website contains affiliate links. I may earn commission.</p>
+  <p>© 2026 Zyvaron</p>
 </footer>
-
-<script>
-function searchProduct(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
-
-  for(let i=0;i<cards.length;i++){
-    let text = cards[i].innerText.toLowerCase();
-    cards[i].style.display = text.includes(input) ? "" : "none";
-  }
-}
-
-function filter(category){
-  let cards = document.getElementsByClassName("card");
-
-  for(let i=0;i<cards.length;i++){
-    if(category=="all"){
-      cards[i].style.display="";
-    } else {
-      cards[i].style.display = cards[i].classList.contains(category) ? "" : "none";
-    }
-  }
-}
-
-function showDetails(text){
-  let popup = document.getElementById("popup");
-  popup.innerHTML = "<h3>"+text+"</h3><p>Best product for you!</p>";
-  popup.style.display="block";
-  setTimeout(()=>popup.style.display="none",3000);
-}
-</script>
 
 </body>
 </html>
