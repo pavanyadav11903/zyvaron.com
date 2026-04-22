@@ -1,223 +1,354 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Zyvaron Store</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zyvaron AI</title>
 
-<style>
-body {margin:0; font-family:Arial; background:#eaeded;}
-
-/* HEADER */
-header {
-  background:#131921;
-  color:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-header h2 {color:#ff9900; margin:0;}
-
-.search-box input {
-  padding:8px;
-  width:300px;
-  border:none;
-}
-
-/* BANNER */
-.banner {
-  width:100%;
-  height:250px;
-  background:url('https://images.unsplash.com/photo-1607082349566-187342175e2f') center/cover;
-}
-
-/* CATEGORIES */
-.categories {
-  display:flex;
-  justify-content:center;
-  background:white;
-  padding:15px;
-  gap:20px;
-}
-
-.categories div {
-  background:#f3f3f3;
-  padding:10px 20px;
-  border-radius:5px;
-  cursor:pointer;
-  font-weight:bold;
-  transition:0.3s;
-}
-
-.categories div:hover {
-  background:#ffd814;
-}
-
-/* PRODUCTS */
-.products {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  padding:20px;
-}
-
-.card {
-  background:white;
-  width:220px;
-  margin:15px;
-  padding:15px;
-  border-radius:8px;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-  text-align:center;
-}
-
-.card img {
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-button {
-  background:#ffd814;
-  border:1px solid #fcd200;
-  padding:10px;
-  margin-top:10px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* FOOTER */
-footer {
-  background:#232f3e;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-
-/* WELCOME POPUP */
-#welcomeBox {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-
-.welcome-content {
-  background:white;
-  padding:25px;
-  border-radius:10px;
-  text-align:center;
-  width:300px;
-}
-
-.welcome-content button {
-  margin-top:10px;
-  padding:10px;
-  background:#ff9900;
-  color:white;
-  border:none;
-}
-</style>
-</head>
-
-<body>
-
-<!-- WELCOME POPUP -->
-<div id="welcomeBox">
-  <div class="welcome-content">
-    <h2>Welcome to Zyvaron 🛒</h2>
-    <p>Best Amazon Deals for You</p>
-    <button onclick="closeWelcome()">Enter Store</button>
-  </div>
-</div>
-
-<header>
-  <h2>Zyvaron</h2>
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Search products..." onkeyup="searchProducts()">
-  </div>
-</header>
-
-<div class="banner"></div>
-
-<div class="categories">
-  <div onclick="filterProducts('all')">All</div>
-  <div onclick="filterProducts('mobile')">Mobiles</div>
-  <div onclick="filterProducts('laptop')">Laptops</div>
-  <div onclick="filterProducts('headphone')">Headphones</div>
-</div>
-
-<div class="products">
-
-<div class="card mobile">
-  <img src="https://m.media-amazon.com/images/I/616-Eh2FbPL._SL1500_.jpg">
-  <h3>iPhone 17 Pro Max</h3>
-  <p>₹1,49,900</p>
-  <a href="https://www.amazon.in/dp/B0FQFW4MVJ/?tag=zyvaronstore-21" target="_blank">
-    <button>Buy Now</button>
-  </a>
-</div>
-
-<div class="card mobile">
-  <img src="https://m.media-amazon.com/images/I/31MWL1qkA+L._SX342_SY445_QL70_FMwebp_.jpg">
-  <h3>iPhone Air</h3>
-  <p>₹93,499</p>
-  <a href="https://www.amazon.in/dp/B0FQFJGP8S/?tag=zyvaronstore-21" target="_blank">
-    <button>Buy Now</button>
-  </a>
-</div>
-
-<div class="card headphone">
-  <img src="https://m.media-amazon.com/images/I/61oCISLE+PL._SL1500_.jpg">
-  <h3>Apple AirPods</h3>
-  <p>₹11,999</p>
-  <a href="https://www.amazon.in/dp/B0DGJLL7V1/?tag=zyvaronstore-21" target="_blank">
-    <button>Buy Now</button>
-  </a>
-</div>
-
-</div>
-
-<footer>
-  <p>Email: zyvaron.co.in@gmail.com</p>
-  <p>Phone: +916360669149</p>
-  <p>This site uses affiliate links</p>
-</footer>
-
-<script>
-function closeWelcome(){
-  document.getElementById("welcomeBox").style.display="none";
-}
-
-function filterProducts(category){
-  let cards = document.getElementsByClassName("card");
-
-  for(let i=0;i<cards.length;i++){
-    if(category === "all"){
-      cards[i].style.display = "block";
-    } else {
-      cards[i].style.display = cards[i].classList.contains(category) ? "block" : "none";
+  <style>
+    * {
+      box-sizing: border-box;
     }
-  }
-}
 
-function searchProducts(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let cards = document.getElementsByClassName("card");
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+      background: #0f172a;
+      color: white;
+    }
 
-  for(let i=0;i<cards.length;i++){
-    let text = cards[i].innerText.toLowerCase();
-    cards[i].style.display = text.includes(input) ? "block" : "none";
-  }
-}
-</script>
+    .sidebar {
+      width: 260px;
+      background: #020617;
+      padding: 20px;
+      border-right: 1px solid #1e293b;
+      overflow-y: auto;
+    }
 
+    .sidebar h2 {
+      margin: 0 0 16px 0;
+      font-size: 24px;
+    }
+
+    .sidebar button {
+      width: 100%;
+      padding: 12px;
+      background: #2563eb;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .sidebar button:hover {
+      background: #1d4ed8;
+    }
+
+    #history {
+      margin-top: 20px;
+    }
+
+    .chat-item {
+      padding: 10px;
+      margin: 8px 0;
+      background: #1e293b;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .chat-item:hover {
+      background: #334155;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .topbar {
+      padding: 16px 20px;
+      border-bottom: 1px solid #1e293b;
+      background: #111827;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chat {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #0f172a;
+    }
+
+    .msg {
+      margin: 10px 0;
+      padding: 12px 14px;
+      border-radius: 12px;
+      max-width: 75%;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .user {
+      background: #2563eb;
+      margin-left: auto;
+      text-align: left;
+    }
+
+    .ai {
+      background: #1e293b;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .input-box {
+      display: flex;
+      gap: 10px;
+      padding: 16px;
+      background: #020617;
+      border-top: 1px solid #1e293b;
+    }
+
+    input {
+      flex: 1;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    button.send {
+      padding: 14px 20px;
+      border: none;
+      background: #10b981;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      min-width: 90px;
+    }
+
+    button.send:hover {
+      background: #059669;
+    }
+
+    .empty-state {
+      opacity: 0.7;
+      text-align: center;
+      margin-top: 60px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: 180px;
+        border-right: none;
+        border-bottom: 1px solid #1e293b;
+      }
+
+      .msg {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Zyvaron AI</h2>
+    <button id="newChatBtn" type="button">+ New Chat</button>
+    <div id="history"></div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">AI Chat Assistant</div>
+
+    <div id="chat" class="chat">
+      <div class="empty-state">Start a new chat and ask anything.</div>
+    </div>
+
+    <div class="input-box">
+      <input id="message" type="text" placeholder="Ask anything..." />
+      <button id="sendBtn" class="send" type="button">Send</button>
+    </div>
+  </div>
+
+  <script>
+    let chatId = null;
+
+    const chatBox = document.getElementById("chat");
+    const historyBox = document.getElementById("history");
+    const inputBox = document.getElementById("message");
+    const sendBtn = document.getElementById("sendBtn");
+    const newChatBtn = document.getElementById("newChatBtn");
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.innerText = text;
+      return div.innerHTML;
+    }
+
+    function addMessage(role, content) {
+      const emptyState = document.querySelector(".empty-state");
+      if (emptyState) {
+        emptyState.remove();
+      }
+
+      const div = document.createElement("div");
+      div.className = `msg ${role}`;
+      div.innerHTML = escapeHtml(content);
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      return div;
+    }
+
+    async function loadChats() {
+      try {
+        const res = await fetch("/api/chats");
+        const data = await res.json();
+
+        historyBox.innerHTML = "";
+
+        if (!res.ok || !data.chats) {
+          historyBox.innerHTML = '<div class="chat-item">Could not load chats</div>';
+          return;
+        }
+
+        if (data.chats.length === 0) {
+          historyBox.innerHTML = '<div class="chat-item">No chats yet</div>';
+          return;
+        }
+
+        data.chats.forEach((chat) => {
+          const item = document.createElement("div");
+          item.className = "chat-item";
+          item.textContent = chat.title || "New conversation";
+          item.addEventListener("click", () => openChat(chat._id));
+          historyBox.appendChild(item);
+        });
+      } catch (error) {
+        historyBox.innerHTML = '<div class="chat-item">Error loading chats</div>';
+      }
+    }
+
+    async function openChat(id) {
+      try {
+        const res = await fetch(`/api/chats/${id}`);
+        const data = await res.json();
+
+        if (!res.ok || !data.chat) {
+          alert(data.message || "Could not open chat");
+          return;
+        }
+
+        chatId = id;
+        chatBox.innerHTML = "";
+
+        if (!data.chat.messages || data.chat.messages.length === 0) {
+          chatBox.innerHTML = '<div class="empty-state">This chat has no messages yet.</div>';
+          return;
+        }
+
+        data.chat.messages.forEach((msg) => {
+          const roleClass = msg.role === "user" ? "user" : "ai";
+          addMessage(roleClass, msg.content);
+        });
+      } catch (error) {
+        alert("Error opening chat");
+      }
+    }
+
+    async function newChat() {
+      try {
+        const res = await fetch("/api/chats", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.chat) {
+          alert(data.message || "Could not create chat");
+          return;
+        }
+
+        chatId = data.chat._id;
+        chatBox.innerHTML = '<div class="empty-state">New chat created. Send a message.</div>';
+        await loadChats();
+      } catch (error) {
+        alert("Error creating chat");
+      }
+    }
+
+    async function sendMessage() {
+      const msg = inputBox.value.trim();
+
+      if (!msg) {
+        return;
+      }
+
+      if (!chatId) {
+        await newChat();
+        if (!chatId) {
+          return;
+        }
+      }
+
+      addMessage("user", msg);
+      inputBox.value = "";
+
+      const thinkingEl = addMessage("ai", "Thinking...");
+
+      try {
+        const res = await fetch(`/api/chats/${chatId}/messages`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ prompt: msg })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || !data.chat || !data.chat.messages) {
+          thinkingEl.innerText = data.message || "Failed to send message";
+          return;
+        }
+
+        const reply = data.chat.messages[data.chat.messages.length - 1].content;
+        thinkingEl.innerText = reply;
+
+        await loadChats();
+      } catch (error) {
+        thinkingEl.innerText = "Error sending message";
+      }
+    }
+
+    sendBtn.addEventListener("click", sendMessage);
+    newChatBtn.addEventListener("click", newChat);
+
+    inputBox.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        sendMessage();
+      }
+    });
+
+    loadChats();
+  </script>
 </body>
 </html>
